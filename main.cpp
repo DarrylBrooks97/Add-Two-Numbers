@@ -36,7 +36,7 @@ class Operations{
 		void printList(Node*);
 		int addNumberList(Node*,Node*);
 	    void reverseNumber(Node*);
-		Node* reverseSum(int);
+		Node* reverseSum(int*);
 };
 
 int main(){
@@ -44,21 +44,78 @@ int main(){
 	Node* num2Ptr = NULL;
 	Node* Ans = NULL;
 	Node* ansPtr = new Node;
-	Node third(9);
-	Node second(4);
-	Node first(3);
-	Operations opObj;
-	int sum = 0;
+    int *intPtr = new int;
+    Operations opObj;
+    int *sum = new int;
+    
+    
+    for(int i=0;i<6;++i){
+        switch(i){
+                case 0:
+                    cout<<"Enter the first digit of the first number: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node third(*intPtr);
+                    break;
+                case 1:
+                    cout<<"Enter the second digit of the first number: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node second(*intPtr);
+                    break;
+                case 2:
+                    cout<<"Enter the first digit: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node first(*intPtr);
+                    break;
+                case 3:
+                    cout<<"Enter the first digit of the second number: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node end(*intPtr);
+                    break;
+                case 4:
+                    cout<<"Enter the second digit of the second number: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node midpoint(*intPtr);
+                    break;
+                default:
+                    cout<<"Enter the third digit of the second number: ";
+                    cin>>*intPtr;
+                    while(cin.fail()){
+                        cout<<"Enter only integers: ";
+                        cin>>*intPtr;
+                    }
+                    Node begin(*intPtr);
+                break;
+        }
+    }
+    
+	
+	
 	
 	num1Ptr = &third;     //Points to first number's digit
 	
 	third.setNext(second);
 	second.setNext(first);
-	
-	Node end(1);
-	Node midpoint(5);
-	Node begin(2);
-	
+    
 	num2Ptr = &end;     //Points to second number's digit
 	
 	end.setNext(midpoint);
@@ -80,12 +137,13 @@ int main(){
 	opObj.printList(Ans);                       //Prints reversed Answer 
 	cout<<"\n";
 	 
+    delete sum;
+    delete intPtr;
 	delete ansPtr;
 	return 0;
 }
 
 void Operations::printList(Node* nodePtr){
-
 	while(nodePtr!=NULL){
 		cout<<nodePtr->num;
 		nodePtr = nodePtr->next;
@@ -141,7 +199,7 @@ int Operations::addNumberList(Node* num1,Node* num2){
 	delete curr2;
 }
 
-Node* Operations::reverseSum(int x){
+Node* Operations::reverseSum(int *x){
 	Node* head = NULL;
 	Node* curr = NULL;
 	Node* temp = NULL;
@@ -150,7 +208,7 @@ Node* Operations::reverseSum(int x){
 	Node* nodePtr = new Node;
 	int k=0;
 	
-	numString << x;
+	numString << *x;
 	number = numString.str();
 
 	while(k<number.size()){
