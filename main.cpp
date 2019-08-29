@@ -47,7 +47,12 @@ int main(){
     int *intPtr = new int;
     Operations opObj;
     int *sum = new int;
-    
+    Node third;
+    Node second;
+    Node first;
+    Node end;
+    Node midpoint;
+    Node begin;
     
     for(int i=0;i<6;++i){
         switch(i){
@@ -58,7 +63,7 @@ int main(){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node third(*intPtr);
+                    third.num = *intPtr;
                     break;
                 case 1:
                     cout<<"Enter the second digit of the first number: ";
@@ -67,16 +72,16 @@ int main(){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node second(*intPtr);
+                    second.num = *intPtr;
                     break;
                 case 2:
-                    cout<<"Enter the first digit: ";
+                    cout<<"Enter the third digit of the first number: ";
                     cin>>*intPtr;
                     while(cin.fail()){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node first(*intPtr);
+                    first.num = *intPtr;
                     break;
                 case 3:
                     cout<<"Enter the first digit of the second number: ";
@@ -85,7 +90,7 @@ int main(){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node end(*intPtr);
+                    end.num = *intPtr;
                     break;
                 case 4:
                     cout<<"Enter the second digit of the second number: ";
@@ -94,7 +99,7 @@ int main(){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node midpoint(*intPtr);
+                    midpoint.num = *intPtr;
                     break;
                 default:
                     cout<<"Enter the third digit of the second number: ";
@@ -103,7 +108,7 @@ int main(){
                         cout<<"Enter only integers: ";
                         cin>>*intPtr;
                     }
-                    Node begin(*intPtr);
+                    begin.num = *intPtr;
                 break;
         }
     }
@@ -124,10 +129,10 @@ int main(){
 	opObj.reverseNumber(num1Ptr);               //Reverses the first number 
 	opObj.reverseNumber(num2Ptr);               //Reverses the second number
 
-	sum = opObj.addNumberList(num1Ptr,num2Ptr); //Adds the two numbers together 
+	*sum = opObj.addNumberList(num1Ptr,num2Ptr); //Adds the two numbers together
 	
 	
-	Ans = opObj.reverseSum(sum);                //Reverses Answer 
+	Ans = opObj.reverseSum(sum);                //Reverses Answer
 	cout<<"Answer: ";
 	opObj.printList(ansPtr->Ans);
 	cout<<"\n";
