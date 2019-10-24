@@ -74,12 +74,12 @@ int main(){
 	
 	
 	Ans = opObj.reverseSum(sum);                                     //Reverses Answer
-	cout<<"Answer is: ";
+	cout<<"Answer: ";
 	opObj.printList(ansPtr->Ans);
 	cout<<"\n";
 	
 	opObj.reverseNumber(Ans);
-	cout<<"Reversed Answer is: ";
+	cout<<"Reversed Answer: ";
 	opObj.printList(Ans);                                            //Prints reversed Answer
 	cout<<"\n";
 	 
